@@ -67,11 +67,26 @@ let ctaImage = document.getElementById('cta-img')
 ctaImage.src = siteContent.cta["img-src"]
 
 // main content
-let mainContent = document.querySelector('.main-conten')
-let topContent = document.querySelector('.top-content')
-let contentText = document.querySelectorAll('.text-content')
 let middleImage = document.getElementById('middle-img')
-let bottomContent = document.querySelector('.bottom-content')
+middleImage.src = siteContent['main-content']['middle-img-src']
+
+// content set-up
+const dynamicContent = (content, criteria) => Object.entries(content)
+  .filter(item => item[0].includes(criteria))
+  .map(item => item[1])
+
+const addContent = (elem, content, criteria, cb) => {
+  Array.from(elem).forEach((item, index) => {
+    item.textContent = cb(content, criteria)[index]
+  })
+}
+
+let contentHeading = document.querySelectorAll('.text-content h4')
+addContent(contentHeading, siteContent['main-content'], 'h4', dynamicContent)
+
+let contentParagraph = document.querySelectorAll('.text-content p')
+addContent(contentParagraph, siteContent['main-content'], 'content', dynamicContent)
+
 
 // contact
 let contactHeading = document.querySelector('.contact h4')
