@@ -74,10 +74,15 @@ let middleImage = document.getElementById('middle-img')
 let bottomContent = document.querySelector('.bottom-content')
 
 // contact
-let contat = document.querySelector('.contact')
-let contactH4 = document.querySelector('.contact H4')
+let contactHeading = document.querySelector('.contact h4')
+contactHeading.textContent = siteContent.contact['contact-h4']
 let contactParagraph = document.querySelectorAll('.contact p')
+
+contactParagraph[0].textContent = siteContent.contact['address']
+contactParagraph[1].textContent = siteContent.contact['phone']
+contactParagraph[2].textContent = siteContent.contact['email']
 
 // footer
 let footer = document.getElementsByTagName('footer')
-let footerParagraph = document.querySelector('footer p')
+let footerContent = document.querySelector('footer p')
+footerContent.textContent = siteContent.footer.copyright
