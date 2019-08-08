@@ -79,6 +79,11 @@ let ctaImage = document.getElementById('cta-img')
 
 ctaImage.src = siteContent.cta["img-src"]
 
+// stretch text change on button click
+button.addEventListener('click', () => {
+  ctaH1.textContent = siteContent.cta.button
+})
+
 // main content
 let middleImage = document.getElementById('middle-img')
 middleImage.src = siteContent['main-content']['middle-img-src']
