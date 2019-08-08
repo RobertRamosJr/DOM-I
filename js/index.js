@@ -46,10 +46,23 @@ let nav = document.querySelector('nav')
 let navMenuLinks = document.querySelectorAll('nav a')
 
 // forEach() method
-Array.from(navMenuLinks).forEach((link, index) => {
-  link.text = Object.values(siteContent.nav)[index]
-  link.style.color  = 'green' // change text color to green
-})
+  Array.from(navMenuLinks).forEach((link, index) => {
+    link.textContent = Object.values(siteContent.nav)[index]
+  })
+  
+  // .appendChild() and .prepend() to add two new items to the navigation system
+  const homeLink = document.createElement('a')
+  homeLink.textContent = 'Home'
+  document.querySelector('nav').prepend(homeLink)
+  
+  const loginLink = document.createElement('a')
+  loginLink.textContent = 'Login'
+  document.querySelector('nav').append(loginLink)
+
+  // change nav text color to green
+  Array.from(document.querySelectorAll('nav a')).forEach(link => {
+    link.style.color = 'green'
+  })
 
 // cta 
 let cta = document.querySelector('.cta')
