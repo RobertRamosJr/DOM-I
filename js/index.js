@@ -45,12 +45,26 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 let nav = document.querySelector('nav')
 let navMenuLinks = document.querySelectorAll('nav a')
 
+// forEach() method
+Array.from(navMenuLinks).forEach((link, index) => {
+  link.text = Object.values(siteContent.nav)[index]
+  link.style.color  = 'green' // change text color to green
+})
+
 // cta 
 let cta = document.querySelector('.cta')
 let ctaText = document.querySelector('.cta-text')
 let ctaH1 = document.querySelector('.cta=text H1')
+
+ctaH1.textContent = siteContent.cta.h1
+
 let button = document.querySelector('button')
+
+button.textContent = siteContent.cta.button
+
 let ctaImage = document.getElementById('cta-img')
+
+ctaImage.src = siteContent.cta["img-src"]
 
 // main content
 let mainContent = document.querySelector('.main-conten')
